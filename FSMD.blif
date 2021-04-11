@@ -1,0 +1,31 @@
+.model FSMD
+.inputs bancomat_inserito cod0 cod1 cod2 cod3 CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13 CD14 CD15
+.outputs reinserire_codice abilitazione_erogazione blocco_bancomat CDE0 CDE1 CDE2 CDE3 CDE4 CDE5 CDE6 CDE7 CDE8 CDE9
+
+
+.subckt FSM bancomat_inserito=bancomat_inserito cod0=cod0 cod1=cod1 cod2=cod2 cod3=cod3 check_cod=check_cod cashok=cashok check_disponibilita=check_disponibilita reinserire_codice=reinserire_codice abilitazione_erogazione=abilitazione_erogazione blocco_bancomat=blocco_bancomat in0=in0 in1=in1 in2=in2
+
+#controlla il primo valore inserito per il codice
+.subckt MUXREG4 in=in0 cod0=cod0 cod1=cod1 cod2=cod2 cod3=cod3 codOK=REG1OK
+
+#controlla il secondo valore inserito per il codice
+.subckt MUXREG4 in=in1 cod0=cod0 cod1=cod1 cod2=cod2 cod3=cod3 codOK=REG2OK
+
+#controlla il terzo valore inserito per il codice
+.subckt MUXREG40 in=in2 cod0=cod0 cod1=cod1 cod2=cod2 cod3=cod3 codOK=REG3OK
+
+#controlla che tutti e tre i valori del codice siano corretti
+.subckt CHECKCOD REG1OK=REG1OK REG2OK=REG2OK REG3OK=REG3OK regsOk=check_cod
+
+
+# --------------------- TODO da dividerex4 - i bit sono 16 e non 13!!!!!!!!!! ----------------------
+
+.subckt MUXEROGARE CR0=CR0 CR1=CR1 CR2=CR2 CR3=CR3 CR4=CR4 CR5=CR5 CR6=CR6 CR7=CR7 CR8=CR8 CR9=CR9 CD0=CD0 CD1=CD1 CD2=CD2 CD3=CD3 CD4=CD4 CD5=CD5 CD6=CD6 CD7=CD7 CD8=CD8 CD9=CD9 CD10=CD10 CD11=CD11 CD12=CD12 CD13=CD13 CASHOK=cashok
+
+# --------------------------------------------------------------------------------------------------
+
+.search checkcod.blif
+.search muxreg4.blif
+.search muxreg40.blif
+.serach muxerogare.blif
+.end 

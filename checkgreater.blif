@@ -1,0 +1,26 @@
+#controlla se il valore richiesto è al massimo 1/4 del valore depositato
+
+.model CHECKGREATER
+.inputs CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13
+.outputs greaterOk
+
+.names CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13 greaterOk
+----------1------------- 1
+----------01------------ 1
+----------001----------- 1
+----------0001---------- 1
+0---------00001--------- 1
+00--------000001-------- 1
+000-------0000001------- 1
+0000------00000001------ 1
+00000-----000000001----- 1
+000000----0000000001---- 1
+0000000---00000000001--- 1
+00000000--000000000001-- 1
+000000000-0000000000001- 1
+0000000000-------------- 1
+
+.end
+
+
+100		  

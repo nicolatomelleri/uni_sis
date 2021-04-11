@@ -1,0 +1,30 @@
+#controlla se il valore inserito nei 4 bit corrisponde a 0 e salva il valore inserito nel registro
+.model MUXREG40
+.inputs in cod0 cod1 cod2 cod3
+.outputs codOK
+
+.names in cod0 cod0Old self0
+11- 1
+0-1 1
+
+.names in cod1 cod1Old self1
+11- 1
+0-1 1
+
+.names in cod2 cod2Old self2
+11- 1
+0-1 1
+
+.names in cod3 cod3Old self3
+11- 1
+0-1 1
+
+.names self0 self1 self2 self3 codOK
+0000 1
+
+.latch self0 cod0Old re NIL 0
+.latch self1 cod1Old re NIL 0
+.latch self2 cod2Old re NIL 0
+.latch self3 cod3Old re NIL 0
+
+.end

@@ -1,0 +1,10 @@
+#controlla se il codice inserito composto da 3 valori è valido
+
+.model CHECKCOD
+.inputs REG1OK REG2OK REG3OK
+.outputs regsOk
+
+.names REG1OK REG2OK REG3OK regsOk
+111 1
+
+.end

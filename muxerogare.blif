@@ -1,0 +1,40 @@
+#controlla se il valore richiesto corrisponde ai criteri(1/4 del depostiato) e se è valido lo ripropone come output
+
+.model MUXEROGARE
+.inputs CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13
+.outputs CDE0 CDE1 CDE2 CDE3 CDE4 CDE5 CDE6 CDE7 CDE8 CDE9 CASHOK
+
+.subckt CHECKGREATER CR0=CR0 CR1=CR1 CR2=CR2 CR3=CR3 CR4=CR4 CR5=CR5 CR6=CR6 CR7=CR7 CR8=CR8 CR9=CR9 CD0=CD0 CD1=CD1 CD2=CD2 CD3=CD3 CD4=CD4 CD5=CD5 CD6=CD6 CD7=CD7 CD8=CD8 CD9=CD9 CD10=CD10 CD11=CD11 CD12=CD12 CD13=CD13 greaterOk=selfOK
+
+.names selfOK CR0 CDE0
+11 1
+
+.names selfOK CR1 CDE1
+11 1
+
+.names selfOK CR2 CDE2
+11 1
+
+.names selfOK CR3 CDE3
+11 1
+
+.names selfOK CR4 CDE4
+11 1
+
+.names selfOK CR5 CDE5
+11 1
+
+.names selfOK CR6 CDE6
+11 1
+
+.names selfOK CR7 CDE7
+11 1
+
+.names selfOK CR8 CDE8
+11 1
+
+.names selfOK CR9 CDE9
+11 1
+
+.search checkgreater.blif
+.end
