@@ -1,26 +1,44 @@
-#controlla se il valore richiesto è al massimo 1/4 del valore depositato
+#controlla se il valore richiesto è minore di 1/4 del valore depositato
 
 .model CHECKGREATER
-.inputs CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13
+.inputs CR9 CR8 CR7 CR6 CR5 CR4 CR3 CR2 CR1 CR0 CD15 CD14 CD13 CD12 CD11 CD10 CD9 CD8 CD7 CD6 CD5 CD4 CD3 CD2 CD1 CD0
 .outputs greaterOk
 
-.names CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13 greaterOk
-----------1------------- 1
-----------01------------ 1
-----------001----------- 1
-----------0001---------- 1
-0---------00001--------- 1
-00--------000001-------- 1
-000-------0000001------- 1
-0000------00000001------ 1
-00000-----000000001----- 1
-000000----0000000001---- 1
-0000000---00000000001--- 1
-00000000--000000000001-- 1
-000000000-0000000000001- 1
-0000000000-------------- 1
 
+.subckt xor A=CD11 B=CR9 X=X9
+.subckt xor A=CD10 B=CR8 X=X8
+.subckt xor A=CD9 B=CR7 X=X7
+.subckt xor A=CD8 B=CR6 X=X6
+.subckt xor A=CD7 B=CR5 X=X5
+.subckt xor A=CD6 B=CR4 X=X4
+.subckt xor A=CD5 B=CR3 X=X3
+.subckt xor A=CD4 B=CR2 X=X2
+.subckt xor A=CD3 B=CR1 X=X1
+.subckt xor A=CD2 B=CR0 X=X0
+
+
+.names CD15 CD14 CD13 CD12 CD11 CD10 CD9 CD8 CD7 CD6 CD5 CD4 CD3 CD2 CD1 CD0 X9 X8 X7 X6 X5 X4 X3 X2 X1 X0 greaterOk
+
+#4321098765432109876543210 ok
+
+1------------------------- 1
+01------------------------ 1
+001----------------------- 1
+0001---------------------- 1
+
+00001-----------1--------- 1
+0000-1----------01-------- 1
+0000--1---------001------- 1
+0000---1--------0001------ 1
+0000----1-------00001----- 1
+0000-----1------000001---- 1
+0000------1-----0000001--- 1
+0000-------1----00000001-- 1
+0000--------1---000000001- 1
+0000---------1--0000000001 1
+
+0000----------1-0000000000 1
+0000-----------10000000000 1
+
+.search xor.blif
 .end
-
-
-100		  

@@ -1,5 +1,5 @@
 .model FSMD
-.inputs bancomat_inserito cod0 cod1 cod2 cod3 CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13 CD14 CD15
+.inputs bancomat_inserito cod0 cod1 cod2 cod3 CR9 CR8 CR7 CR6 CR5 CR4 CR3 CR2 CR1 CR0 CD15 CD14 CD13 CD12 CD11 CD10 CD9 CD8 CD7 CD6 CD5 CD4 CD3 CD2 CD1 CD0
 .outputs reinserire_codice abilitazione_erogazione blocco_bancomat CDE0 CDE1 CDE2 CDE3 CDE4 CDE5 CDE6 CDE7 CDE8 CDE9
 
 
@@ -18,9 +18,8 @@
 .subckt CHECKCOD REG1OK=REG1OK REG2OK=REG2OK REG3OK=REG3OK regsOk=check_cod
 
 
-# --------------------- TODO da dividerex4 - i bit sono 16 e non 13!!!!!!!!!! ----------------------
-
-.subckt MUXEROGARE CR0=CR0 CR1=CR1 CR2=CR2 CR3=CR3 CR4=CR4 CR5=CR5 CR6=CR6 CR7=CR7 CR8=CR8 CR9=CR9 CD0=CD0 CD1=CD1 CD2=CD2 CD3=CD3 CD4=CD4 CD5=CD5 CD6=CD6 CD7=CD7 CD8=CD8 CD9=CD9 CD10=CD10 CD11=CD11 CD12=CD12 CD13=CD13 CASHOK=cashok
+# controlla che il valore richiesto sia minore di 1/4 del valore depositato e, se lo è, riporta il valore richiesto
+.subckt MUXEROGARE CR0=CR0 CR1=CR1 CR2=CR2 CR3=CR3 CR4=CR4 CR5=CR5 CR6=CR6 CR7=CR7 CR8=CR8 CR9=CR9 CD0=CD0 CD1=CD1 CD2=CD2 CD3=CD3 CD4=CD4 CD5=CD5 CD6=CD6 CD7=CD7 CD8=CD8 CD9=CD9 CD10=CD10 CD11=CD11 CD12=CD12 CD13=CD13 CD14=CD14 CD15=CD15 CASHOK=cashok
 
 # --------------------------------------------------------------------------------------------------
 
